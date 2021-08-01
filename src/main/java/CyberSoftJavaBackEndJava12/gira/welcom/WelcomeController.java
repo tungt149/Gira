@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class WelcomeController {
-@GetMapping("/welcome")
-public Object Welcome() {
-	return "Welcome to Gira Apllication";
-}
+	@GetMapping("/welcome")
+	public Object Welcome() {
+		return "Welcome to Gira Apllication";
+	}
 }
