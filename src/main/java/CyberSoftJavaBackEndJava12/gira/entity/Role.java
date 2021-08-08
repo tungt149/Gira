@@ -5,11 +5,14 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import CyberSoftJavaBackEndJava12.gira.common.entity.BaseEntity;
 
@@ -17,10 +20,7 @@ import CyberSoftJavaBackEndJava12.gira.common.entity.BaseEntity;
 @Table(name = "gira_role")
 public class Role extends BaseEntity{
 	
-//	@Id
-//	@GeneratedValue
-//	private Long id;
-//	
+	@NotBlank
 	private String name;
 	private String description;
 	
@@ -31,4 +31,47 @@ public class Role extends BaseEntity{
 	@JoinTable(name = "gira_role_program",joinColumns = @JoinColumn(name ="role_id" ),
 	inverseJoinColumns = @JoinColumn(name = "program_id"))
 	private Set<Program>programs = new HashSet<>();
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Set<Group> getGroups() {
+		return groups;
+	}
+
+	public void setGroups(Set<Group> groups) {
+		this.groups = groups;
+	}
+
+	public Set<Program> getPrograms() {
+		return programs;
+	}
+
+	public void setPrograms(Set<Program> programs) {
+		this.programs = programs;
+	}
+
+
+
 }
