@@ -18,7 +18,7 @@ public class swagger {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("cybersoft Gira app")).build().apiInfo(apiInfo());
+				.apis(RequestHandlerSelectors.basePackage("CyberSoftJavaBackEndJava12.gira")).build().apiInfo(apiInfo());
 
 	}
 
