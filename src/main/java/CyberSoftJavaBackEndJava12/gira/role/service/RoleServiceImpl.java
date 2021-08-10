@@ -1,13 +1,15 @@
-package CyberSoftJavaBackEndJava12.gira.service;
+package CyberSoftJavaBackEndJava12.gira.role.service;
 
 import java.util.List;
 
 
 import org.springframework.stereotype.Service;
 
-import CyberSoftJavaBackEndJava12.gira.dto.CreateDto;
-import CyberSoftJavaBackEndJava12.gira.entity.Role;
-import CyberSoftJavaBackEndJava12.gira.responsitory.RoleResponsitory;
+import CyberSoftJavaBackEndJava12.gira.role.dto.CreateDto;
+import CyberSoftJavaBackEndJava12.gira.role.entity.Role;
+import CyberSoftJavaBackEndJava12.gira.role.reponsitory.RoleResponsitory;
+
+
 
 @Service
 public class RoleServiceImpl implements RoleService {

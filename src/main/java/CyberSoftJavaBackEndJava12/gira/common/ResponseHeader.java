@@ -1,4 +1,4 @@
-package CyberSoftJavaBackEndJava12.gira.common.until;
+package CyberSoftJavaBackEndJava12.gira.common;
 
 
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package CyberSoftJavaBackEndJava12.gira.dto;
+package CyberSoftJavaBackEndJava12.gira.role.dto;
 
 import javax.validation.constraints.NotBlank;
 

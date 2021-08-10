@@ -1,4 +1,4 @@
-package CyberSoftJavaBackEndJava12.gira.controller;
+package CyberSoftJavaBackEndJava12.gira.role.controller;
 
 import java.util.List;
 
@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import CyberSoftJavaBackEndJava12.gira.common.until.ResponseHeader;
-import CyberSoftJavaBackEndJava12.gira.dto.CreateDto;
-import CyberSoftJavaBackEndJava12.gira.entity.Role;
-import CyberSoftJavaBackEndJava12.gira.service.RoleService;
-import javassist.expr.NewArray;
+import CyberSoftJavaBackEndJava12.gira.common.ResponseHeader;
+import CyberSoftJavaBackEndJava12.gira.role.dto.CreateDto;
+import CyberSoftJavaBackEndJava12.gira.role.entity.Role;
+import CyberSoftJavaBackEndJava12.gira.role.service.RoleService;
 
 @RestController
 @RequestMapping("/api/role")

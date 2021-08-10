@@ -1,20 +1,21 @@
-package CyberSoftJavaBackEndJava12.gira.entity;
+package CyberSoftJavaBackEndJava12.gira.role.entity;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import CyberSoftJavaBackEndJava12.gira.common.entity.BaseEntity;
+import CyberSoftJavaBackEndJava12.gira.group.entity.Group;
+import CyberSoftJavaBackEndJava12.gira.program.entity.Program;
 
 @Entity
 @Table(name = "gira_role")
