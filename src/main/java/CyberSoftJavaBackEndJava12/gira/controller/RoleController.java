@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import CyberSoftJavaBackEndJava12.gira.common.until.ResponseHeader;
 import CyberSoftJavaBackEndJava12.gira.dto.CreateDto;
 import CyberSoftJavaBackEndJava12.gira.entity.Role;
 import CyberSoftJavaBackEndJava12.gira.service.RoleService;
@@ -30,7 +31,7 @@ public class RoleController {
 	@GetMapping
 	public Object finAllRole() {
 		List<Role> roles = service.findAll();
-		return new ResponseEntity<>(roles, HttpStatus.OK);
+		return ResponseHeader.getResponse(roles, HttpStatus.OK);
 	}
 
 	@PostMapping
@@ -42,7 +43,7 @@ public class RoleController {
 		Role addedRole = service.addNewRole(dto);
 		
 		
-		return new ResponseEntity<>(addedRole,HttpStatus.CREATED);
+		return ResponseHeader.getResponse(addedRole, HttpStatus.CREATED);
 	}
 
 }
