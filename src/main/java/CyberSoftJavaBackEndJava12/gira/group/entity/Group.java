@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import CyberSoftJavaBackEndJava12.gira.common.entity.BaseEntity;
 import CyberSoftJavaBackEndJava12.gira.role.entity.Role;
@@ -22,7 +25,11 @@ public class Group extends BaseEntity {
 //	@GeneratedValue
 //	private Long id;
 
+	@NotNull
+	@Column(unique = true)
+	@Size(min=3,max=50,message = "{group.name.size}")
 	private String name;
+	
 	private String description;
 
 	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })

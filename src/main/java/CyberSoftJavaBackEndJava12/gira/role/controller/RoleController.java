@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import CyberSoftJavaBackEndJava12.gira.common.ResponseHeader;
+import CyberSoftJavaBackEndJava12.gira.role.dto.AddProgramDto;
 import CyberSoftJavaBackEndJava12.gira.role.dto.CreateDto;
+import CyberSoftJavaBackEndJava12.gira.role.dto.RoleDto;
 import CyberSoftJavaBackEndJava12.gira.role.entity.Role;
 import CyberSoftJavaBackEndJava12.gira.role.service.RoleService;
 
@@ -29,20 +31,30 @@ public class RoleController {
 
 	@GetMapping
 	public Object finAllRole() {
-		List<Role> roles = service.findAll();
+		List<RoleDto> roles = service.findAll();
 		return ResponseHeader.getResponse(roles, HttpStatus.OK);
 	}
 
 	@PostMapping
-	public Object saveRole(@Valid @RequestBody CreateDto dto,BindingResult erros) {
-		if(erros.hasErrors()) {
+	public Object saveRole(@Valid @RequestBody CreateDto dto, BindingResult erros) {
+		if (erros.hasErrors()) {
 			return new ResponseEntity<>(erros.getAllErrors(), HttpStatus.BAD_REQUEST);
 		}
-		
 		Role addedRole = service.addNewRole(dto);
-		
-		
 		return ResponseHeader.getResponse(addedRole, HttpStatus.CREATED);
+	}
+
+	@PostMapping("/addprogram")
+	public Object addProgram(@Valid @RequestBody AddProgramDto dto,
+			BindingResult errors) {
+		if(errors.hasErrors())
+			return ResponseHeader.getResponse(errors, HttpStatus.BAD_REQUEST);
+		
+		Role updateRole = service.addProgram(dto);
+		return ResponseHeader.getResponse(updateRole,HttpStatus.OK);
+
+		
+
 	}
 
 }

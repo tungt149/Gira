@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import CyberSoftJavaBackEndJava12.gira.common.ResponseHeader;
 
+import CyberSoftJavaBackEndJava12.gira.program.dto.CreateProgramDto;
 import CyberSoftJavaBackEndJava12.gira.program.dto.ProgramDto;
 import CyberSoftJavaBackEndJava12.gira.program.entity.Program;
 import CyberSoftJavaBackEndJava12.gira.program.service.ProgramService;
@@ -29,15 +30,15 @@ public class ProgramController {
 
 	@GetMapping
 	public Object findAllProgram() {
-		List<Program> programs = service.findAll();
+		List<ProgramDto> programs = service.findAll();
 		return ResponseHeader.getResponse(programs, HttpStatus.OK);
 	}
 
 	@PostMapping
-	public Object SaveProgram(@Valid @RequestBody ProgramDto programDto, BindingResult errors) {
+	public Object SaveProgram(@Valid @RequestBody CreateProgramDto createProgramDto, BindingResult errors) {
 		if (errors.hasErrors())
 			return ResponseHeader.getResponse(errors, HttpStatus.BAD_REQUEST);
-		Program addedProgram = service.addNewProgram(programDto);
-		return ResponseHeader.getResponse(addedProgram, HttpStatus.CREATED);
+		Program newProgram = service.saveProgram(createProgramDto);
+		return ResponseHeader.getResponse(newProgram, HttpStatus.CREATED);
 	}
 }

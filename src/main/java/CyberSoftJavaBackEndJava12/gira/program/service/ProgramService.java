@@ -2,11 +2,12 @@ package CyberSoftJavaBackEndJava12.gira.program.service;
 
 import java.util.List;
 
+import CyberSoftJavaBackEndJava12.gira.program.dto.CreateProgramDto;
 import CyberSoftJavaBackEndJava12.gira.program.dto.ProgramDto;
 import CyberSoftJavaBackEndJava12.gira.program.entity.Program;
 public interface ProgramService {
-	List<Program> findAll();
+	List<ProgramDto> findAll();
 	
-	Program addNewProgram(ProgramDto programDto);
-
+	
+	Program saveProgram(CreateProgramDto createProgramDto);
 }
